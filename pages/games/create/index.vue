@@ -19,10 +19,7 @@ export default {
   asyncData(context) {},
   methods: {
     commitGame() {
-      this.$axios
-        .post('/games', this.game)
-        .then((response) => console.log(response))
-        .catch((response) => console.log(response))
+      return this.$store.dispatch('games/createGame', this.game)
     }
   }
 }

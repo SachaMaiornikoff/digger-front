@@ -1,38 +1,43 @@
 <template>
-  <div class="gameListItem">
+  <div v-if="gameImage" class="game-list-item">
     <img
       :src="'data:image/png;base64,' + gameImage.image"
       alt="Embedded Image"
-      class="gameListImage"
+      class="game-list-image"
     />
-    <div class="gameListDesc">
+    <div class="game-list-desc">
       <h4>{{ gameImage.game.title }}</h4>
-      <a>Date de sortie : {{ gameImage.game.releaseDate }}</a>
-      <br />
-      <a>{{ gameImage.game.studio }}</a>
+      <span>Date de sortie : {{ gameImage.game.releaseDate }}</span>
+      <p>{{ gameImage.game.studio }}</p>
     </div>
   </div>
 </template>
 <script>
 export default {
-  props: { gameImage: Object }
+  props: {
+    gameImage: {
+      type: Object,
+      default: () => {},
+      required: true
+    }
+  }
 }
 </script>
 <style>
-.gameListItem {
+.game-list-item {
   border: black solid 1px;
   width: 450px;
   height: 200px;
   display: flex;
 }
 
-.gameListImage {
+.game-list-image {
   height: 198px;
   width: 150px;
   display: inline-block;
 }
 
-.gameListDesc {
+.game-list-desc {
   height: 198px;
   width: 300px;
   display: inline-block;
