@@ -1,25 +1,33 @@
 <template>
   <div class="container">
+    <nuxt-link to="/games/list">Retour</nuxt-link>
     <form @submit.prevent="commitGame">
       <h1>Formulaire de création d'un jeu</h1>
-      <a>Titre : </a><input v-model="game.title" type="text" />
-      <a>Date de sortie : </a><input v-model="game.releaseDate" type="date" />
-      <a>Studio : </a><input v-model="game.studio" type="text" />
+      <p>Titre : <input v-model="game.title" type="text" /></p>
+      <p>Date de sortie : <input v-model="game.releaseDate" type="date" /></p>
+      <p>Studio : <input v-model="game.studio" type="text" /></p>
+      <p>Image : <FileReader @load="uploadImage" /></p>
+
       <input type="submit" value="Créer jeu" />
     </form>
   </div>
 </template>
 
 <script>
+import FileReader from '~/components/FileReader.vue'
+
 export default {
-  components: {},
+  components: { FileReader },
   data() {
-    return { game: JSON }
+    return { game: {} }
   },
   asyncData(context) {},
   methods: {
     commitGame() {
       return this.$store.dispatch('games/createGame', this.game)
+    },
+    uploadImage(e) {
+      this.game.image = e.toString()
     }
   }
 }

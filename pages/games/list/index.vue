@@ -1,13 +1,18 @@
 <template>
   <div class="container">
-    <div>
-      <h1>Liste de jeu {{ nbRequests }}</h1>
-      <ul v-for="(gameImage, indexGame) in gamesImage" :key="indexGame">
+    <h1>Liste de jeu {{ nbRequests }}</h1>
+    <nuxt-link to="/games/create">Créer un nouveau jeu</nuxt-link>
+    <ul class="games-container">
+      <li
+        class="games-container-item"
+        v-for="(gameImage, indexGame) in gamesImage"
+        :key="indexGame"
+      >
         <nuxt-link :to="'/games/' + gameImage.game.id">
           <GameListItem :gameImage="gameImage" />
         </nuxt-link>
-      </ul>
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -36,9 +41,20 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.games-container {
+  width: 100%;
+  display: inline-block;
+}
+
+.games-container-item {
+  width: 450px;
+  display: inline-block;
+  margin: 5px;
+  border-radius: 20px;
 }
 </style>

@@ -29,12 +29,16 @@ export default {
   width: 450px;
   height: 200px;
   display: flex;
+  border-radius: 20px;
 }
 
 .game-list-image {
   height: 198px;
   width: 150px;
   display: inline-block;
+  border-right: black solid 1px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .game-list-desc {

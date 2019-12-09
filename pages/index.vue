@@ -9,6 +9,7 @@
         My extraordinary Nuxt.js project
       </h2>
       <div class="links">
+        <nuxt-link to="/games/list">Liste de jeux</nuxt-link>
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">
           Documentation
         </a>
