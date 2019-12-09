@@ -9,26 +9,13 @@
       <h4>{{ gameImage.game.title }}</h4>
       <a>Date de sortie : {{ gameImage.game.releaseDate }}</a>
       <br />
-      <a>{{ gameImage.game.description }}</a>
+      <a>{{ gameImage.game.studio }}</a>
     </div>
   </div>
 </template>
 <script>
 export default {
-  // eslint-disable-next-line no-undef
-  props: { gameImage: Object },
-  data(context) {
-    // called every time before loading the component
-    // as the name said, it can be async
-    // Also, the returned object will be merged with your data object
-  },
-  fetch() {
-    // The `fetch` method is used to fill the store before rendering the page
-  },
-  head() {
-    // Set Meta Tags for this Page
-  }
-  // and more functionality to discover
+  props: { gameImage: Object }
 }
 </script>
 <style>

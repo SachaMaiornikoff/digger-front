@@ -49,7 +49,6 @@ export default {
   axios: {
     baseURL: 'http://localhost:8080',
     timeout: 5000,
-    withCredentials: true,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'

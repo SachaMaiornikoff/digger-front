@@ -3,27 +3,24 @@
     <div>
       <h1>Liste de jeu</h1>
       <ul v-for="gameImage in gamesImage">
-        <GameListItem :gameImage="gameImage" />
+        <nuxt-link :to="'/games/' + gameImage.game.id" no-prefetch>
+          <GameListItem :gameImage="gameImage" />
+        </nuxt-link>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import GameListItem from '~/components/GameListItem.vue'
 
 export default {
   components: {
-    // eslint-disable-next-line vue/no-unused-components,no-undef
     GameListItem
   },
   asyncData(context) {
-    return context.store.dispatch('games/getGames')
-  },
-  beforeCreate() {
-    axios
-      .get('/games', { progress: false })
+    return context.$axios
+      .get('/games')
       .then((response) => {
         return {
           gamesImage: response.data
