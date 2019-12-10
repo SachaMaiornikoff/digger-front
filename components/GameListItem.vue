@@ -46,5 +46,11 @@ export default {
   width: 300px;
   display: inline-block;
   font-size: 0.8em;
+  color: black;
+}
+
+.game-list-desc:hover {
+  color: black;
+  text-decoration: none;
 }
 </style>

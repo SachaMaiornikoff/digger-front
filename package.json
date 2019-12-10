@@ -9,21 +9,56 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "test": "ava test/**/*.spec.js --serial",
+    "coverage": "nyc ava test/**/*.spec.js --serial"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "axios": "^0.19.0",
-    "nuxt": "^2.0.0"
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.1.0",
+    "nuxt": "^2.0.0",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/register": "^7.7.4",
+    "@istanbuljs/nyc-config-babel": "^2.1.1",
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-module": "^1.0.0",
+    "ava": "^2.4.0",
+    "babel": "^6.23.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-istanbul": "^5.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.0.1",
-    "prettier": "^1.16.4"
+    "expect": "^24.9.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "jsdom": "^15.2.1",
+    "jsdom-global": "^3.0.2",
+    "nyc": "^14.1.1",
+    "prettier": "^1.16.4",
+    "require-extension-hooks": "^0.3.3",
+    "require-extension-hooks-babel": "^1.0.0",
+    "require-extension-hooks-vue": "^3.0.0",
+    "sinon": "^7.5.0",
+    "vue-test-utils": "^1.0.0-beta.11",
+    "webpack-config": "^7.5.0"
+  },
+  "ava": {
+    "require": [
+      "./test/setup.js"
+    ]
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-babel",
+    "all": true,
+    "per-file": true,
+    "check-coverage": true,
+    "lines": 0
   }
 }

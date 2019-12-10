@@ -1,14 +1,16 @@
 <template>
   <div class="container">
     <h1>Liste de jeu {{ nbRequests }}</h1>
-    <nuxt-link to="/games/create">Créer un nouveau jeu</nuxt-link>
     <ul class="games-container">
       <li
-        class="games-container-item"
         v-for="(gameImage, indexGame) in gamesImage"
         :key="indexGame"
+        class="games-container-item"
       >
-        <nuxt-link :to="'/games/' + gameImage.game.id">
+        <nuxt-link
+          :to="'/games/' + gameImage.game.id"
+          class="not-underlined-link"
+        >
           <GameListItem :gameImage="gameImage" />
         </nuxt-link>
       </li>
@@ -38,12 +40,13 @@ export default {
 </script>
 
 <style>
+.not-underlined-link {
+  color: white;
+}
+
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  display: inline-block;
+  max-width: none;
 }
 
 .games-container {

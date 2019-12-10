@@ -73,7 +73,8 @@ export default {
     wrapperStyles: function wrapperStyles() {
       return {
         position: 'relative',
-        width: '100%'
+        width: '50%',
+        'margin-left': '25%'
       }
     },
     fileInputStyles: function fileInputStyles() {

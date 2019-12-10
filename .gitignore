@@ -88,3 +88,7 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Coverage
+.nyc_output
+coverage

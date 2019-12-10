@@ -9,7 +9,7 @@
       <img
         :src="'data:image/png;base64,' + gameImage.image"
         alt="Embedded Image"
-        class="gameListImage"
+        class="game-image"
       />
     </div>
   </div>
@@ -31,11 +31,11 @@ export default {
 
 <style>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+}
+
+.game-image {
+  max-height: 450px;
+  overflow: auto;
 }
 </style>
