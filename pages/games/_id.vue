@@ -1,15 +1,22 @@
 <template>
   <div class="container">
-    <div>
-      <nuxt-link to="/games/list">Retour</nuxt-link>
-      <h1>{{ gameImage.game.title }}</h1>
-      <button v-on:click="deleteGame()">
-        Supprimer entrée
-      </button>
+    <div class="image-container">
       <img
         :src="'data:image/png;base64,' + gameImage.image"
         alt="Embedded Image"
         class="game-image"
+      />
+    </div>
+    <div class="description-container">
+      <nuxt-link class="back-button" to="/games/list"
+        ><span class="glyphicon glyphicon-chevron-left"></span>
+        Retour</nuxt-link
+      >
+      <h1>{{ gameImage.game.title }}</h1>
+      <img
+        v-on:click="deleteGame()"
+        class="delete-icon"
+        src="/delete_icon.png"
       />
     </div>
   </div>
@@ -31,11 +38,47 @@ export default {
 
 <style>
 .container {
-  text-align: center;
+  width: 100%;
+  height: 100px;
+  display: inline-block;
+  padding: 0;
+  position: relative;
+}
+
+.description-container {
+  width: 79%;
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 0px;
+}
+
+.image-container {
+  width: 20%;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 .game-image {
-  max-height: 450px;
-  overflow: auto;
+  width: 100%;
+}
+
+.delete-icon {
+  max-height: 25px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.back-button {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.delete-icon:hover {
+  cursor: pointer;
 }
 </style>
