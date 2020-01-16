@@ -1,4 +1,7 @@
 export default {
+  server: {
+    port: 8000
+  },
   mode: 'spa',
   /*
    ** Headers of the page

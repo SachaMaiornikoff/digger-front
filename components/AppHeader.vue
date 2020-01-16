@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar class="navigationbar" toggleable="lg" type="dark" variant="dark">
       <b-navbar-brand href="/">Brand</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -53,5 +53,8 @@
 }
 .not-underlined-link:hover {
   color: white;
+}
+.navigationbar {
+  z-index: 4;
 }
 </style>
