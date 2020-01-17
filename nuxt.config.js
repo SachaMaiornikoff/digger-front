@@ -51,7 +51,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'http://digger-buddy.herokuapp.com/',
+    baseURL: 'https://digger-buddy.herokuapp.com/',
     timeout: 5000,
     headers: {
       Accept: 'application/json',
