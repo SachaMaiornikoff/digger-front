@@ -51,7 +51,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: process.env.AXIOS_BASEURL,
+    baseURL: 'http://digger-buddy.herokuapp.com/',
     timeout: 5000,
     headers: {
       Accept: 'application/json',
@@ -66,8 +66,5 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  },
-  env: {
-    AXIOS_BASEURL: 'http://localhost:8080'
   }
 }
