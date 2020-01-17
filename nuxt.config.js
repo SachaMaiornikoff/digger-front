@@ -45,13 +45,13 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     'bootstrap-vue/nuxt'
-],
+  ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'http://localhost:8080',
+    baseURL: process.env.AXIOS_BASEURL,
     timeout: 5000,
     headers: {
       Accept: 'application/json',
@@ -66,5 +66,8 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  env: {
+    AXIOS_BASEURL: 'http://localhost:8080'
   }
 }
