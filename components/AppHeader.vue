@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar class="navigationbar" toggleable="lg" type="dark" variant="dark">
-      <b-navbar-brand href="/">Brand</b-navbar-brand>
+      <b-navbar-brand href="/">Digging buddy</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
