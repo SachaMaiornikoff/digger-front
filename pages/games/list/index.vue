@@ -3,15 +3,12 @@
     <h1>Liste de jeu {{ nbRequests }}</h1>
     <ul class="games-container">
       <li
-        v-for="(gameImage, indexGame) in gamesImage"
+        v-for="(game, indexGame) in games"
         :key="indexGame"
         class="games-container-item"
       >
-        <nuxt-link
-          :to="'/games/' + gameImage.game.id"
-          class="not-underlined-link"
-        >
-          <GameListItem :gameImage="gameImage" />
+        <nuxt-link :to="'/games/' + game.id" class="not-underlined-link">
+          <GameListItem :game="game" />
         </nuxt-link>
       </li>
     </ul>

@@ -10,8 +10,9 @@ export const actions = {
     return await this.$axios
       .get('/games', { progress: false })
       .then((response) => {
+        console.log(response.data)
         return {
-          gamesImage: response.data
+          games: response.data.content
         }
       })
   },
@@ -21,7 +22,7 @@ export const actions = {
       .get('/games/' + idGame, { progress: false })
       .then((response) => {
         return {
-          gameImage: response.data
+          game: response.data
         }
       })
       .catch((error) => console.log('There was an error : ' + error))
@@ -33,7 +34,7 @@ export const actions = {
       .then((response) => {
         this.$router.replace('/games/list')
         return {
-          gamesImage: response.data
+          game: response.data
         }
       })
   },

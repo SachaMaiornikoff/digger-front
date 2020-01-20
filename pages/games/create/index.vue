@@ -1,12 +1,19 @@
 <template>
   <div class="container">
     <nuxt-link to="/games/list">Retour</nuxt-link>
-    <form class="creation-form" @submit.prevent="commitGame">
+    <form @submit.prevent="commitGame" class="creation-form">
       <h1>Formulaire de création d'un jeu</h1>
       <p>Titre : <input v-model="game.title" type="text" /></p>
       <p>Date de sortie : <input v-model="game.releaseDate" type="date" /></p>
       <p>Studio : <input v-model="game.studio" type="text" /></p>
-      <p>Image : <FileReader @load="uploadImage" /></p>
+      <p>
+        URL de l'image de la couverture :
+        <input v-model="game.coverUrl" type="text" />
+      </p>
+      <p>
+        URL d'une image de gameplay :
+        <input v-model="game.gameplayImageUrl" type="text" />
+      </p>
 
       <input type="submit" value="Créer jeu" />
     </form>
@@ -14,10 +21,8 @@
 </template>
 
 <script>
-import FileReader from '~/components/FileReader.vue'
-
 export default {
-  components: { FileReader },
+  components: {},
   data() {
     return { game: {} }
   },

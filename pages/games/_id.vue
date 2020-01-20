@@ -4,22 +4,36 @@
       ><img src="https://img.icons8.com/windows/96/000000/circled-left-2.png"
     /></nuxt-link>
     <img
-      :src="'data:image/png;base64,' + gameImage.image"
+      v-if="game.gameplayImageUrl"
+      :src="game.gameplayImageUrl"
+      alt="Gameplay_image"
+      class="gameplay-image"
+    />
+    <img
+      v-else
+      src="http://www.imfdb.org/images/3/39/MW1-Shipunov-Placeholder.jpg"
       alt="Gameplay_image"
       class="gameplay-image"
     />
     <div class="content">
       <div class="image-container">
         <img
-          :src="'data:image/png;base64,' + gameImage.image"
+          v-if="game.coverUrl"
+          :src="game.coverUrl"
+          alt="Game_image"
+          class="game-image"
+        />
+        <img
+          v-else
+          src="/digging-buddy-icon.jpg"
           alt="Game_image"
           class="game-image"
         />
       </div>
       <div class="title-container">
-        <h1>{{ gameImage.game.title }}</h1>
-        <h3>{{ gameImage.game.studio }}</h3>
-        <h4>{{ gameImage.game.releaseDate }}</h4>
+        <h1>{{ game.title }}</h1>
+        <h3>{{ game.studio }}</h3>
+        <h4>{{ game.releaseDate }}</h4>
       </div>
       <div class="description-container">
         <p>
@@ -106,7 +120,7 @@ export default {
   },
   methods: {
     deleteGame(str) {
-      return this.$store.dispatch('games/deleteGame', this.gameImage.game.id)
+      return this.$store.dispatch('games/deleteGame', this.game.id)
     }
   }
 }
