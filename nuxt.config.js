@@ -7,7 +7,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Digging Buddy',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -17,7 +17,7 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/digging-buddy-icon.jpg' }]
   },
   /*
    ** Customize the progress-bar color
@@ -51,7 +51,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://digger-buddy.herokuapp.com/',
+    baseURL: process.env.AXIOS_BASE_URL || 'http://localhost:8080/',
     timeout: 5000,
     headers: {
       Accept: 'application/json',
