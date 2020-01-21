@@ -16,19 +16,30 @@
 </template>
 
 <script>
+// eslint-disable-next-line import/named
+import cloneDeep from 'lodash.clonedeep'
 import GameListItem from '~/components/GameListItem.vue'
 
 export default {
+  layout: 'connected',
+  data() {
+    return {
+      user: cloneDeep(this.$store.state.auth.user),
+      pagination: {
+        currentPage: 0
+      }
+    }
+  },
   components: {
     GameListItem
+  },
+  asyncData(context) {
+    return context.store.dispatch('games/getAllGames')
   },
   computed: {
     nbRequests() {
       return this.$store.state.games.nbRequests
     }
-  },
-  asyncData(context) {
-    return context.store.dispatch('games/getAllGames')
   },
   mounted() {
     this.$store.commit('games/incrementNbRequest')

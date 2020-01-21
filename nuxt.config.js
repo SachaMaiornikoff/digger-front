@@ -96,11 +96,14 @@ export default {
     },
     redirect: {
       login: '/login',
-      logout: '/',
-      home: '/'
+      logout: '/login',
+      home: '/games/list'
     },
     resetOnError: true,
     rewriteRedirects: true,
     fullPathRedirect: true
+  },
+  router: {
+    middleware: ['auth']
   }
 }

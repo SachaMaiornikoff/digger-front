@@ -114,6 +114,7 @@
 
 <script>
 export default {
+  layout: 'connected',
   components: {},
   asyncData(context) {
     return context.store.dispatch('games/getGame', context.params.id)
