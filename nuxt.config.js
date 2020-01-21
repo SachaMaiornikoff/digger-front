@@ -17,7 +17,9 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/digging-buddy-icon.jpg' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/digging-buddy-icon.jpg' }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -44,7 +46,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/auth'
   ],
   /*
    ** Axios module configuration
@@ -66,5 +69,38 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  auth: {
+    // Options
+    strategies: {
+      local: {
+        _scheme: 'local',
+        endpoints: {
+          login: {
+            url:
+              (process.env.AXIOS_BASE_URL || 'http://localhost:8080/') +
+              'login',
+            method: 'post',
+            propertyName: 'token'
+          },
+          logout: false,
+          user: {
+            url:
+              (process.env.AXIOS_BASE_URL || 'http://localhost:8080/') +
+              'users/me',
+            method: 'get',
+            propertyName: false
+          }
+        }
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/',
+      home: '/'
+    },
+    resetOnError: true,
+    rewriteRedirects: true,
+    fullPathRedirect: true
   }
 }

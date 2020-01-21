@@ -30,7 +30,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .game-list-item {
   border: black solid 1px;
   width: 450px;

@@ -17,6 +17,11 @@
               >Créer un jeu</nuxt-link
             >
           </b-nav-item>
+          <b-nav-item>
+            <nuxt-link to="/login" class="not-underlined-link"
+              >S'identifier</nuxt-link
+            >
+          </b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
