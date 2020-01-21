@@ -17,11 +17,6 @@
               >Créer un jeu</nuxt-link
             >
           </b-nav-item>
-          <b-nav-item>
-            <nuxt-link to="/login" class="not-underlined-link"
-              >S'identifier</nuxt-link
-            >
-          </b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -40,7 +35,7 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template v-slot:button-content>
-              <em>User</em>
+              <em>{{ user.pseudo }}</em>
             </template>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
             <b-dropdown-item href="#">Sign Out</b-dropdown-item>
@@ -51,7 +46,20 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import cloneDeep from 'lodash.clonedeep'
+
+export default {
+  data() {
+    return {
+      user: cloneDeep(this.$store.state.auth.user),
+      pagination: {
+        currentPage: 0
+      }
+    }
+  }
+}
+</script>
 <style>
 .not-underlined-link {
   color: white;

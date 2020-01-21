@@ -42,6 +42,18 @@ export const actions = {
     dispatch('filters/resetState', null, { root: true })
     dispatch('search/resetState', null, { root: true })
     dispatch('atrium/resetState', null, { root: true })
+  },
+
+  async login({ dispatch }, user) {
+    // eslint-disable-next-line no-return-await
+    return await this.$axios
+      .post('/login', user)
+      .then(function(response) {
+        console.log(response)
+        this.token = response.headers
+        this.$router.replace('/games/list')
+      })
+      .catch((response) => console.log(response))
   }
 }
 

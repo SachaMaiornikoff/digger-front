@@ -11,11 +11,12 @@
 
 <script>
 export default {
+  auth: 'guest',
+  layout: 'notConnected',
   components: {},
   data() {
     return { user: { email: '', password: '' } }
   },
-  asyncData(context) {},
   methods: {
     commitLogin() {
       this.$auth

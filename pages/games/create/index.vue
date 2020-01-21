@@ -22,6 +22,7 @@
 
 <script>
 export default {
+  layout: 'connected',
   components: {},
   data() {
     return { game: {} }

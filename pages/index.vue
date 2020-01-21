@@ -22,6 +22,8 @@
 import Logo from '~/components/Logo.vue'
 
 export default {
+  auth: 'guest',
+  layout: 'notConnected',
   components: {
     Logo
   }
