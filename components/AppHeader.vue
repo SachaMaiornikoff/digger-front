@@ -28,6 +28,8 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
             <b-form-input
+              v-model="query"
+              @keyup="updatedQuery"
               size="sm"
               class="mr-sm-2"
               placeholder="Search"
@@ -51,7 +53,20 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      query: ''
+    }
+  },
+  methods: {
+    updatedQuery() {
+      this.$emit('updatedQuery', this.query)
+    }
+  }
+}
+</script>
 <style>
 .not-underlined-link {
   color: white;

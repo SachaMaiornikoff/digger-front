@@ -1,7 +1,7 @@
 <template>
   <div>
-    <AppHeader />
-    <nuxt />
+    <AppHeader @updatedQuery="updatedQuery" />
+    <nuxt :query="query" />
   </div>
 </template>
 
@@ -11,6 +11,16 @@ import AppHeader from '~/components/AppHeader.vue'
 export default {
   components: {
     AppHeader
+  },
+  data() {
+    return {
+      query: ''
+    }
+  },
+  methods: {
+    updatedQuery(query) {
+      this.query = query
+    }
   }
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <h1>Liste de jeu {{ nbRequests }}</h1>
+    <input v-model="query" type="text" />
+    <h1>Liste de jeu {{ query }}</h1>
     <ul class="games-container">
       <li
         v-for="(game, indexGame) in games"
@@ -22,9 +23,24 @@ export default {
   components: {
     GameListItem
   },
+  data() {
+    return {
+      query: '',
+      timer: Object
+    }
+  },
   computed: {
     nbRequests() {
       return this.$store.state.games.nbRequests
+    }
+  },
+  watch: {
+    query() {
+      this.$store
+        .dispatch('games/getGamesFiltered', this.query)
+        .then((response) => {
+          this.games = response.games
+        })
     }
   },
   asyncData(context) {

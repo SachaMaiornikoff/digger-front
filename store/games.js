@@ -10,7 +10,6 @@ export const actions = {
     return await this.$axios
       .get('/games', { progress: false })
       .then((response) => {
-        console.log(response.data)
         return {
           games: response.data.content
         }
@@ -44,6 +43,17 @@ export const actions = {
       .post('/games', game)
       .then((response) => this.$router.replace('/games/list'))
       .catch((response) => console.log(response))
+  },
+  async getGamesFiltered({ dispatch }, query) {
+    // eslint-disable-next-line no-return-await
+    return await this.$axios
+      .post('/games/search', { query }, { progress: false })
+      .then((response) => {
+        this.$router.replace('/games/list?q=' + query)
+        return {
+          games: response.data.content
+        }
+      })
   }
 }
 
