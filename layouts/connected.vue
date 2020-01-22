@@ -44,4 +44,11 @@ body {
 #__nuxt {
   height: 100%;
 }
+#__layout {
+  height: 100%;
+}
+
+.full-screen {
+  height: 100%;
+}
 </style>

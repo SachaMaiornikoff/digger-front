@@ -10,9 +10,8 @@ export const actions = {
     return await this.$axios
       .post('/login', user)
       .then(function(response) {
-        console.log(response)
+        console.log(response.headers)
         this.token = response.headers
-        this.$router.replace('/games/list')
       })
       .catch((response) => console.log(response))
   }
