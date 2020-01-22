@@ -96,7 +96,7 @@ export default {
     },
     redirect: {
       login: '/login',
-      logout: '/login',
+      logout: '/',
       home: '/games/list'
     },
     resetOnError: true,
