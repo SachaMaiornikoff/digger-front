@@ -1,7 +1,5 @@
 export const state = () => {
-  return {
-    nbRequests: 0
-  }
+  return {}
 }
 
 export const actions = {

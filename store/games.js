@@ -1,16 +1,14 @@
 export const state = () => {
-  return {
-    nbRequests: 0
-  }
+  return {}
 }
 
 export const actions = {
   async getAllGames({ dispatch }) {
+    console.log(this.$axios)
     // eslint-disable-next-line no-return-await
     return await this.$axios
       .get('/games', { progress: false })
       .then((response) => {
-        console.log(response.data)
         return {
           games: response.data.content
         }
@@ -28,6 +26,7 @@ export const actions = {
       .catch((error) => console.log('There was an error : ' + error))
   },
   async deleteGame({ dispatch }, idGame) {
+    console.log(this.$axios)
     // eslint-disable-next-line no-return-await
     return await this.$axios
       .delete('/games/' + idGame, { progress: false })

@@ -108,8 +108,6 @@ export default {
   mounted() {
     this.$nextTick(function() {
       this.$nextTick(function() {
-        console.log('HEEEEERE !' + (400 - this.$refs.naming.scrollHeight))
-        console.log(this.$refs.template.style)
         this.$refs.template.style.paddingTop =
           400 - this.$refs.naming.scrollHeight + 'px'
       })

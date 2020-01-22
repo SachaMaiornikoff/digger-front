@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="full-screen">
     <AppHeader />
-    <nuxt />
+    <nuxt class="full-screen" />
   </div>
 </template>
 
@@ -26,6 +26,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  background: #d6d6d6;
+  height: 100%;
 }
 
 *,
@@ -33,5 +39,9 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+#__nuxt {
+  height: 100%;
 }
 </style>

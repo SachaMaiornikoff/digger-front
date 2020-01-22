@@ -37,6 +37,7 @@ export default {
   height: 200px;
   display: flex;
   border-radius: 20px;
+  background: white;
 }
 
 .game-list-image {

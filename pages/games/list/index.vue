@@ -1,24 +1,23 @@
 <template>
   <div class="container">
-    <h1>Liste de jeu {{ nbRequests }}</h1>
-    <ul class="games-container">
-      <li
-        v-for="(game, indexGame) in games"
-        :key="indexGame"
-        class="games-container-item"
-      >
-        <nuxt-link :to="'/games/' + game.id" class="not-underlined-link">
-          <GameListItem :game="game" />
-        </nuxt-link>
-      </li>
-    </ul>
+    <b-container ref="template" class="bv-example-row">
+      <b-row class="full-height">
+        <b-col cols="2" class="no-padding-column filter-column">
+          Ici on aura des filtres
+        </b-col>
+        <b-col cols="10">
+          <h1>Liste de jeu</h1>
+          <GameList :games="games" />
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
 // eslint-disable-next-line import/named
 import cloneDeep from 'lodash.clonedeep'
-import GameListItem from '~/components/GameListItem.vue'
+import GameList from '~/components/GameList.vue'
 
 export default {
   layout: 'connected',
@@ -30,42 +29,33 @@ export default {
       }
     }
   },
-  components: {
-    GameListItem
-  },
   asyncData(context) {
     return context.store.dispatch('games/getAllGames')
   },
-  computed: {
-    nbRequests() {
-      return this.$store.state.games.nbRequests
-    }
-  },
-  mounted() {
-    this.$store.commit('games/incrementNbRequest')
+  components: {
+    GameList
   }
 }
 </script>
 
 <style>
-.not-underlined-link {
-  color: white;
-}
-
 .container {
   display: inline-block;
   max-width: none;
+  padding: 0px;
+  height: 100%;
 }
 
-.games-container {
-  width: 100%;
-  display: inline-block;
+.no-padding-column {
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.games-container-item {
-  width: 450px;
-  display: inline-block;
-  margin: 5px;
-  border-radius: 20px;
+.filter-column {
+  background: white;
+}
+
+.full-height {
+  height: 100%;
 }
 </style>
