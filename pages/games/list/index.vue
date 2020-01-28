@@ -21,6 +21,9 @@ import GameList from '~/components/GameList.vue'
 
 export default {
   layout: 'connected',
+  components: {
+    GameList
+  },
   data() {
     return {
       user: cloneDeep(this.$store.state.auth.user),
@@ -31,9 +34,6 @@ export default {
   },
   asyncData(context) {
     return context.store.dispatch('games/getAllGames')
-  },
-  components: {
-    GameList
   }
 }
 </script>
@@ -52,7 +52,13 @@ export default {
 }
 
 .filter-column {
-  background: white;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 95%,
+    rgba(167, 167, 167, 1) 100%
+  );
 }
 
 .full-height {

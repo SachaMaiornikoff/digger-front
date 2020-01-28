@@ -12,7 +12,7 @@
               Liste de jeu</nuxt-link
             >
           </b-nav-item>
-          <b-nav-item>
+          <b-nav-item v-if="user.privileges == 0">
             <nuxt-link to="/games/create" class="not-underlined-link"
               >Créer un jeu</nuxt-link
             >

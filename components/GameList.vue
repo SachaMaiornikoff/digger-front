@@ -33,7 +33,7 @@ export default {
 }
 
 .games-container-item {
-  width: 450px;
+  width: 400px;
   display: inline-block;
   margin: 5px;
   border-radius: 20px;

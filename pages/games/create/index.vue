@@ -1,39 +1,120 @@
 <template>
   <div class="container">
     <nuxt-link to="/games/list">Retour</nuxt-link>
-    <form @submit.prevent="commitGame" class="creation-form">
-      <h1>Formulaire de création d'un jeu</h1>
-      <p>Titre : <input v-model="game.title" type="text" /></p>
-      <p>Date de sortie : <input v-model="game.releaseDate" type="date" /></p>
-      <p>Studio : <input v-model="game.studio" type="text" /></p>
-      <p>
-        URL de l'image de la couverture :
-        <input v-model="game.coverUrl" type="text" />
-      </p>
-      <p>
-        URL d'une image de gameplay :
-        <input v-model="game.gameplayImageUrl" type="text" />
-      </p>
-
-      <input type="submit" value="Créer jeu" />
-    </form>
+    <CreateGameForm
+      @submitCreateGame="submitCreateGame"
+      class="creation-form"
+    />
+    <input v-model="igdbnum" type="number" />
+    <button v-on:click="fetchGameData" variant="primary">GO</button>
   </div>
 </template>
 
 <script>
+import CreateGameForm from '~/components/Forms/CreateGameForm'
+
 export default {
   layout: 'connected',
-  components: {},
+  components: {
+    CreateGameForm
+  },
   data() {
-    return { game: {} }
+    return {
+      game: {},
+      igdbnum: 0
+    }
   },
   asyncData(context) {},
   methods: {
-    commitGame() {
-      return this.$store.dispatch('games/createGame', this.game)
+    submitCreateGame(game) {
+      return this.$store.dispatch('games/createGame', game)
     },
-    uploadImage(e) {
-      this.game.image = e.toString()
+    fetchGameData() {
+      const _self = this.$axios
+      const _selfThis = this
+      _self.setHeader('user-key', '02213682323c388dd0897166b0ca3b08')
+      _self
+        .post(
+          'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games/',
+          'fields cover, first_release_date, name, screenshots, storyline, summary, involved_companies; where id = ' +
+            this.igdbnum +
+            ';'
+        )
+        .then(function(response) {
+          _self
+            .post(
+              'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/covers',
+              'fields url; where id = ' + response.data[0].cover + ';'
+            )
+            .then(function(responseCover) {
+              _self
+                .post(
+                  'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/screenshots',
+                  'fields *; where id = ' +
+                    response.data[0].screenshots[0] +
+                    ';'
+                )
+                .then(function(responseGameplay) {
+                  console.log(response.data[0])
+                  let body = 'fields *; where id = ('
+                  response.data[0].involved_companies.forEach(
+                    (element) => (body = body + element + ',')
+                  )
+                  body = body.substring(0, body.length - 1)
+                  body = body + ') & developer = true;'
+
+                  _self
+                    .post(
+                      'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/involved_companies',
+                      body
+                    )
+                    .then(function(responseInvolvedCompanies) {
+                      _self
+                        .post(
+                          'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/companies',
+                          'fields name; where id = ' +
+                            responseInvolvedCompanies.data[0].company +
+                            ';'
+                        )
+                        .then(function(responseDeveloper) {
+                          console.log(response.data[0].first_release_date)
+                          const game = {
+                            title: response.data[0].name,
+                            studio: responseDeveloper.data[0].name,
+                            releaseDate: new Date(
+                              response.data[0].first_release_date * 1000
+                            ),
+                            coverUrl:
+                              'http:' +
+                              responseCover.data[0].url.replace(
+                                't_thumb',
+                                't_cover_big'
+                              ),
+                            gameplayImageUrl:
+                              'http:' +
+                              responseGameplay.data[0].url.replace(
+                                't_thumb',
+                                't_screenshot_big'
+                              ),
+                            storyline: response.data[0].storyline,
+                            summary: response.data[0].summary
+                          }
+
+                          game.releaseDate =
+                            game.releaseDate.getFullYear() +
+                            '-' +
+                            game.releaseDate.getMonth() +
+                            '-' +
+                            game.releaseDate.getDate()
+
+                          console.log(game)
+
+                          _selfThis.submitCreateGame(game)
+                        })
+                    })
+                })
+            })
+        })
     }
   }
 }

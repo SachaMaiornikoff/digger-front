@@ -3,7 +3,7 @@
     <h2>Nouvel utilisateur :</h2>
     <b-form @submit.prevent="onSubmit" @reset="onReset" v-if="show">
       <b-form-invalid-feedback :state="validOverall">
-        Veuillez corriger les erreurs avant de valider ce formulaire.
+        Veuillez corriger les erreurs avant de valider.
       </b-form-invalid-feedback>
 
       <b-form-group
@@ -51,7 +51,7 @@
         </b-form-invalid-feedback>
         <br />
         <b-form-input
-          id="input-3"
+          id="input-4"
           v-model="form.pwd_confirm"
           :state="confirmValidPassword"
           type="password"

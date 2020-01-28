@@ -33,10 +33,10 @@ export default {
 <style scoped>
 .game-list-item {
   border: black solid 1px;
-  width: 450px;
+  width: 400px;
   height: 200px;
   display: flex;
-  border-radius: 20px;
+  border-radius: 10px;
   background: white;
 }
 
@@ -45,13 +45,13 @@ export default {
   width: 150px;
   display: inline-block;
   border-right: black solid 1px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
 }
 
 .game-list-desc {
   height: 198px;
-  width: 300px;
+  width: 250px;
   display: inline-block;
   font-size: 0.8em;
   color: black;

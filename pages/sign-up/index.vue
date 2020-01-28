@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import SignUpForm from '~/components/SignUpForm.vue'
+import SignUpForm from '~/components/Forms/SignUpForm.vue'
 
 export default {
   auth: 'guest',

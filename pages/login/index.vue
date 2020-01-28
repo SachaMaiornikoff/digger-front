@@ -1,35 +1,43 @@
 <template>
   <div class="container">
-    <form @submit.prevent="login" class="creation-form">
-      <h1>Formulaire d'identification</h1>
-      <p>Email : <input v-model="user.email" type="text" /></p>
-      <p>Mot de passe : <input v-model="user.password" type="password" /></p>
-      <input type="submit" value="Log in" /><br />
-      <nuxt-link to="/sign-up">Créer un compte</nuxt-link>
-    </form>
+    <b-form-invalid-feedback :state="error.size > 0">
+      {{ error }}
+    </b-form-invalid-feedback>
+    <LoginForm @submitLogIn="login" class="creation-form" />
+    <br />
+    <nuxt-link to="/sign-up"
+      ><b-button variant="outline-primary">Créer un compte</b-button></nuxt-link
+    >
   </div>
 </template>
 
 <script>
+import LoginForm from '~/components/Forms/LoginForm'
+
 export default {
   auth: 'guest',
   layout: 'notConnected',
-  components: {},
+  components: {
+    LoginForm
+  },
   data() {
-    return { user: { email: '', password: '' } }
+    return { error: '' }
   },
   methods: {
-    login() {
+    login(user) {
       this.$auth
         .loginWith('local', {
-          data: this.user
+          data: user
         })
         .then(() => {
           this.$router.push('/')
         })
-        .catch((error) => {
-          const statusCode = error.response.status
-          console.log('Error while logging in : ' + statusCode + ' ' + error)
+        .catch((errorServer) => {
+          const statusCode = errorServer.response.status
+          console.log(
+            'Error while logging in : ' + statusCode + ' ' + errorServer
+          )
+          this.error = errorServer
         })
     }
   }
