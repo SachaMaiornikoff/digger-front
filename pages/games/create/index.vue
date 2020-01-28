@@ -103,9 +103,9 @@ export default {
                           game.releaseDate =
                             game.releaseDate.getFullYear() +
                             '-' +
-                            game.releaseDate.getMonth() +
+                            (game.releaseDate.getUTCMonth() + 1) +
                             '-' +
-                            game.releaseDate.getDate()
+                            game.releaseDate.getUTCDate()
 
                           console.log(game)
 
