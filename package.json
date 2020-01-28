@@ -11,7 +11,8 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "ava --config components-tests.config.js --color",
-    "coverage": "nyc ava test/**/*.spec.js"
+    "coverage": "nyc ava test/**/*.spec.js",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.8.5",
