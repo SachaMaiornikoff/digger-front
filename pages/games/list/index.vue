@@ -5,7 +5,7 @@
         <b-col cols="2" class="no-padding-column filter-column">
           Ici on aura des filtres
         </b-col>
-        <b-col cols="10">
+        <b-col cols="10" class="no-padding-column">
           <h1>Liste de jeu</h1>
           <GameList :games="games" />
         </b-col>
