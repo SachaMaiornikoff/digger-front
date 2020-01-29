@@ -3,16 +3,18 @@ export const state = () => {
 }
 
 export const actions = {
-  async getAllGames({ dispatch }) {
-    console.log(this.$axios)
+  async getGamesFirstPage({ dispatch }) {
     // eslint-disable-next-line no-return-await
     return await this.$axios
-      .get('/games', { progress: false })
+      .get('/games/paginate/0', { progress: false })
       .then((response) => {
         return {
           games: response.data.content
         }
       })
+  },
+  getGamesPaginate({ dispatch }, page) {
+    return this.$axios.get('/games/paginate/' + page, { progress: false })
   },
   async getGame({ dispatch }, idGame) {
     // eslint-disable-next-line no-return-await
@@ -46,8 +48,4 @@ export const actions = {
   }
 }
 
-export const mutations = {
-  incrementNbRequest(state) {
-    state.nbRequests++
-  }
-}
+export const mutations = {}

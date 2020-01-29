@@ -1,7 +1,7 @@
 <template>
   <div class="full-screen">
-    <AppHeader />
-    <nuxt class="full-screen" />
+    <AppHeader class="app-header" />
+    <nuxt class="full-screen-margin" />
   </div>
 </template>
 
@@ -34,6 +34,12 @@ body {
   height: 100%;
 }
 
+.app-header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
 *,
 *:before,
 *:after {
@@ -50,5 +56,11 @@ body {
 
 .full-screen {
   height: 100%;
+}
+
+.full-screen-margin {
+  height: 100%;
+  padding: 0px;
+  padding-top: 50px;
 }
 </style>
