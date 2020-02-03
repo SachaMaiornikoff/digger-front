@@ -97,7 +97,8 @@ export default {
                                 't_screenshot_big'
                               ),
                             storyline: response.data[0].storyline,
-                            summary: response.data[0].summary
+                            summary: response.data[0].summary,
+                            igdb: _selfThis.igdbnum
                           }
 
                           game.releaseDate =
