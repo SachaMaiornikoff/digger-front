@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="creation-container">
     <b-form-invalid-feedback :state="error.size > 0">
       {{ error }}
     </b-form-invalid-feedback>
@@ -43,15 +43,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.container {
-  text-align: center;
-  display: inline-block;
-}
-
-.creation-form {
-  width: 40%;
-  margin-left: 30%;
-}
-</style>

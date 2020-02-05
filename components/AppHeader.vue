@@ -65,14 +65,3 @@ export default {
   }
 }
 </script>
-<style>
-.not-underlined-link {
-  color: white;
-}
-.not-underlined-link:hover {
-  color: white;
-}
-.navigationbar {
-  z-index: 4;
-}
-</style>

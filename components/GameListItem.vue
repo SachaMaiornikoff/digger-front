@@ -30,35 +30,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-.game-list-item {
-  border: black solid 1px;
-  width: 400px;
-  height: 200px;
-  display: flex;
-  border-radius: 10px;
-  background: white;
-}
-
-.game-list-image {
-  height: 198px;
-  width: 150px;
-  display: inline-block;
-  border-right: black solid 1px;
-  border-top-left-radius: 9px;
-  border-bottom-left-radius: 9px;
-}
-
-.game-list-desc {
-  height: 198px;
-  width: 250px;
-  display: inline-block;
-  font-size: 0.8em;
-  color: black;
-}
-
-.game-list-desc:hover {
-  color: black;
-  text-decoration: none;
-}
-</style>

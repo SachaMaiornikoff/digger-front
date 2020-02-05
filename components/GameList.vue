@@ -25,21 +25,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.games-container {
-  width: 100%;
-  display: inline-block;
-}
-
-.games-container-item {
-  width: 400px;
-  display: inline-block;
-  margin: 5px;
-  border-radius: 20px;
-}
-
-.not-underlined-link {
-  color: white;
-}
-</style>

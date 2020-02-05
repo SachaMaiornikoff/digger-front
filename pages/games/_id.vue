@@ -26,27 +26,3 @@ export default {
   methods: {}
 }
 </script>
-
-<style>
-.global-container {
-  width: 100%;
-  padding: 0;
-  position: relative;
-  background-size: 100%;
-}
-
-.gameplay-image {
-  position: absolute;
-  width: 100%;
-  height: 400px;
-  filter: blur(10px);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-}
-
-.gameplay-container {
-  padding-left: 10%;
-  padding-right: 10%;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="creation-container">
     <SignUpForm @submitSignUp="submitSignUp" class="creation-form" />
   </div>
 </template>
@@ -32,19 +32,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.container {
-  text-align: center;
-  display: inline-block;
-}
-
-.creation-form {
-  width: 40%;
-  margin-left: 30%;
-}
-
-.error {
-  border-color: red;
-}
-</style>

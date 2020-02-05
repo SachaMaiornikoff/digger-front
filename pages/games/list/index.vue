@@ -4,7 +4,7 @@
       <b-row class="full-height">
         <b-col
           cols="2"
-          class="no-padding-column filter-column full-height-scroll"
+          class="no-padding-left-right filter-column full-height-scroll"
         >
           Ici on aura des filtres
         </b-col>
@@ -12,7 +12,7 @@
           ref="listContainer"
           v-on:scroll="scroll"
           cols="10"
-          class="no-padding-column full-height-scroll"
+          class="no-padding-left-right full-height-scroll"
         >
           <h1>Liste de jeu</h1>
           <GameList :games="games" />
@@ -66,40 +66,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.container-list {
-  display: inline-block;
-  max-width: none;
-  padding-left: 0px;
-  padding-right: 0px;
-  height: 100%;
-}
-
-.no-padding-column {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.filter-column {
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 95%,
-    rgba(167, 167, 167, 1) 100%
-  );
-}
-
-.full-height {
-  height: 100%;
-  max-height: 100%;
-  overflow: hidden;
-}
-
-.full-height-scroll {
-  height: 100%;
-  max-height: 100%;
-  overflow: scroll;
-}
-</style>

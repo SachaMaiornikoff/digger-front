@@ -1,7 +1,7 @@
 <template>
-  <div class="full-screen">
+  <div class="full-height">
     <AppHeader class="app-header" />
-    <nuxt class="full-screen-margin" />
+    <nuxt class="full-height no-padding padding-top-big" />
   </div>
 </template>
 
@@ -14,53 +14,3 @@ export default {
   }
 }
 </script>
-
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  height: 100%;
-}
-
-body {
-  background: #d6d6d6;
-  height: 100%;
-}
-
-.app-header {
-  position: fixed;
-  width: 100%;
-  z-index: 2;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-#__nuxt {
-  height: 100%;
-}
-#__layout {
-  height: 100%;
-}
-
-.full-screen {
-  height: 100%;
-}
-
-.full-screen-margin {
-  height: 100%;
-  padding: 0px;
-  padding-top: 50px;
-}
-</style>

@@ -1,6 +1,5 @@
 <template>
-  <div class="container">
-    <nuxt-link to="/games/list">Retour</nuxt-link>
+  <div class="creation-container">
     <CreateGameForm
       @submitCreateGame="submitCreateGame"
       class="creation-form"
@@ -120,15 +119,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.container {
-  text-align: center;
-  display: inline-block;
-}
-
-.creation-form {
-  width: 40%;
-  margin-left: 30%;
-}
-</style>
