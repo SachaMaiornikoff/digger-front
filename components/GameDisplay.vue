@@ -19,6 +19,13 @@
           class="small-icon-sizing"
           src="/delete_icon.png"
         />
+        <a v-if="game.g2alink" :href="game.g2alink" target="_blank">
+          <img
+            src="https://www.g2a.com/skin/frontend/gate/default/images/fb-avatar.jpg"
+            class="small-icon-sizing"
+            alt="Game_image"
+          />
+        </a>
       </b-col>
       <b-col cols="10">
         <div ref="naming" class="white-title-shadowed-container">
