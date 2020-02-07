@@ -19,7 +19,13 @@
           class="small-icon-sizing"
           src="/delete_icon.png"
         />
-        <a v-if="game.g2alink" :href="game.g2alink" target="_blank">
+        <a
+          :href="
+            'https://www.g2a.com/search?reflink=digging-buddy-g2a&query=' +
+              game.title
+          "
+          target="_blank"
+        >
           <img
             src="https://www.g2a.com/skin/frontend/gate/default/images/fb-avatar.jpg"
             class="small-icon-sizing"
