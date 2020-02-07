@@ -14,7 +14,7 @@
           cols="10"
           class="no-padding-left-right full-height-scroll"
         >
-          <h1>Liste de jeu</h1>
+          <h1>Liste de jeux</h1>
           <GameList :games="games" />
         </b-col>
       </b-row>

@@ -9,7 +9,7 @@
         <b-navbar-nav>
           <b-nav-item>
             <nuxt-link to="/games/list" class="not-underlined-link">
-              Liste de jeu</nuxt-link
+              Liste de jeux</nuxt-link
             >
           </b-nav-item>
           <b-nav-item v-if="user.privileges == 0">
