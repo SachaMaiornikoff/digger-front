@@ -43,7 +43,7 @@ export const actions = {
     // eslint-disable-next-line no-return-await
     return await this.$axios
       .post('/games', game)
-      .then((response) => this.$router.replace('/games/list'))
+      .then((response) => console.log(response)) // this.$router.replace('/games/list'))
       .catch((response) => console.log(response))
   }
 }
