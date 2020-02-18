@@ -17,6 +17,11 @@
               >Créer un jeu</nuxt-link
             >
           </b-nav-item>
+          <b-nav-item v-if="user.privileges == 0">
+            <nuxt-link to="/gitlab-monitoring" class="not-underlined-link"
+              >Monitoring Gitlab</nuxt-link
+            >
+          </b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->

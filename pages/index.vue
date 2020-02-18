@@ -11,7 +11,7 @@
           target="_blank"
           class="button--grey"
         >
-          GitHub
+          GitHub {{ nbMR }}
         </a>
       </div>
     </div>
@@ -26,6 +26,7 @@ export default {
   layout: 'notConnected',
   components: {
     Logo
-  }
+  },
+  asyncData(context) {}
 }
 </script>

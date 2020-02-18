@@ -58,7 +58,8 @@ export default {
     timeout: 5000,
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'PRIVATE-TOKEN': 'GITLAB_TOKEN'
     }
   },
   /*
