@@ -21,8 +21,9 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-form>
+          <b-nav-form @submit.prevent="search">
             <b-form-input
+              v-model="searchField"
               size="sm"
               class="mr-sm-2"
               placeholder="Search"
@@ -53,6 +54,7 @@ export default {
   data() {
     return {
       user: cloneDeep(this.$store.state.auth.user),
+      searchField: this.$route.query.search,
       pagination: {
         currentPage: 0
       }
@@ -61,6 +63,17 @@ export default {
   methods: {
     signOut() {
       this.$auth.logout()
+    },
+    search() {
+      const path = this.currentRouteName
+      const currentRouteQuery = cloneDeep(this.$route.query)
+      delete currentRouteQuery.search
+      if (!this.searchField !== '') {
+        currentRouteQuery.search = this.searchField
+      }
+      this.$router.push({ path, query: currentRouteQuery }, function() {
+        location.reload()
+      })
     }
   }
 }

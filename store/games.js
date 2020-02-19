@@ -3,18 +3,23 @@ export const state = () => {
 }
 
 export const actions = {
-  async getGamesFirstPage({ dispatch }) {
+  async getGamesFirstPage({ dispatch }, query) {
+    const searchField = query === undefined ? '' : '?search=' + query
     // eslint-disable-next-line no-return-await
     return await this.$axios
-      .get('/games/paginate/0', { progress: false })
+      .get('/games/paginate/0' + searchField, { progress: false })
       .then((response) => {
         return {
           games: response.data.content
         }
       })
   },
-  getGamesPaginate({ dispatch }, page) {
-    return this.$axios.get('/games/paginate/' + page, { progress: false })
+  getGamesPaginate({ dispatch }, data) {
+    const searchField = data.query === undefined ? '' : '?search=' + data.query
+    console.log(data.query)
+    return this.$axios.get('/games/paginate/' + data.page + searchField, {
+      progress: false
+    })
   },
   async getGame({ dispatch }, idGame) {
     // eslint-disable-next-line no-return-await

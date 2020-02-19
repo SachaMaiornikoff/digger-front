@@ -41,7 +41,10 @@ export default {
     }
   },
   asyncData(context) {
-    return context.store.dispatch('games/getGamesFirstPage')
+    return context.store.dispatch(
+      'games/getGamesFirstPage',
+      context.route.query.search
+    )
   },
   methods: {
     scroll() {
@@ -55,8 +58,12 @@ export default {
       }
     },
     loadPage() {
+      console.log(this.$route.query.search)
       this.$store
-        .dispatch('games/getGamesPaginate', this.pagination.currentPage)
+        .dispatch('games/getGamesPaginate', {
+          page: this.pagination.currentPage,
+          query: this.$route.query.search
+        })
         .then((response) => {
           if (response.data.content.length > 0) {
             this.games = this.games.concat(response.data.content)
