@@ -50,8 +50,8 @@ export default {
     scroll() {
       if (
         this.$refs.listContainer.scrollTop +
-          this.$refs.listContainer.offsetHeight ===
-        this.$refs.listContainer.scrollHeight
+          this.$refs.listContainer.offsetHeight >
+        this.$refs.listContainer.scrollHeight - 300
       ) {
         this.pagination.currentPage++
         this.loadPage()
