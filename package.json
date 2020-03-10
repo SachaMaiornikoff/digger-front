@@ -1,7 +1,7 @@
 {
   "name": "digging-buddy",
   "version": "1.0.0",
-  "description": "My extraordinary Nuxt.js project",
+  "description": "Digging buddy side project",
   "author": "Sacha Maiornikoff",
   "private": true,
   "scripts": {
