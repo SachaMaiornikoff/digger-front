@@ -33,10 +33,6 @@ export default {
           this.$router.push('/')
         })
         .catch((errorServer) => {
-          const statusCode = errorServer.response.status
-          console.log(
-            'Error while logging in : ' + statusCode + ' ' + errorServer
-          )
           this.error = errorServer
         })
     }

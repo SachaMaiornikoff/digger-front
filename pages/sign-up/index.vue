@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     submitSignUp(user) {
-      console.log(user)
       return this.$store.dispatch('users/createUser', user)
     }
   }

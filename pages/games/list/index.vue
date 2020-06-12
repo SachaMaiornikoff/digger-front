@@ -58,7 +58,6 @@ export default {
       }
     },
     loadPage() {
-      console.log(this.$route.query.search)
       this.$store
         .dispatch('games/getGamesPaginate', {
           page: this.pagination.currentPage,

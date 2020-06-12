@@ -4,7 +4,9 @@
       @submitCreateGame="submitCreateGame"
       class="creation-form"
     />
-    <input v-model="igdbnum" type="number" />
+    <label>
+      <input v-model="igdbnum" type="number" />
+    </label>
     <button v-on:click="fetchGameData" variant="primary">GO</button>
   </div>
 </template>
@@ -37,7 +39,6 @@ export default {
       }
     },
     triggerGetGameWithId(igdbnum) {
-      console.log(igdbnum)
       const _self = this.$axios
       const _selfThis = this
       _self.setHeader('user-key', '02213682323c388dd0897166b0ca3b08')
