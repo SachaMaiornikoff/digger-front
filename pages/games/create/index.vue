@@ -54,7 +54,6 @@ export default {
                     ';'
                 )
                 .then(function(responseGameplay) {
-                  console.log(response.data[0])
                   let body = 'fields *; where id = ('
                   response.data[0].involved_companies.forEach(
                     (element) => (body = body + element + ',')
@@ -76,7 +75,6 @@ export default {
                             ';'
                         )
                         .then(function(responseDeveloper) {
-                          console.log(response.data[0].first_release_date)
                           const game = {
                             title: response.data[0].name,
                             studio: responseDeveloper.data[0].name,
@@ -106,8 +104,6 @@ export default {
                             (game.releaseDate.getUTCMonth() + 1) +
                             '-' +
                             game.releaseDate.getUTCDate()
-
-                          console.log(game)
 
                           _selfThis.submitCreateGame(game)
                         })

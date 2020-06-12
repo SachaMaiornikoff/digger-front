@@ -1,7 +1,7 @@
 <template>
   <div class="global-container">
     <div ref="gameplayImage" class="gameplay-image"></div>
-    <GameDisplay class="gameplay-container" :game="game" />
+    <GameDisplay :game="game" class="gameplay-container" />
   </div>
 </template>
 

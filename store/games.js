@@ -25,10 +25,8 @@ export const actions = {
           game: response.data
         }
       })
-      .catch((error) => console.log('There was an error : ' + error))
   },
   async deleteGame({ dispatch }, idGame) {
-    console.log(this.$axios)
     // eslint-disable-next-line no-return-await
     return await this.$axios
       .delete('/games/' + idGame, { progress: false })
@@ -44,7 +42,6 @@ export const actions = {
     return await this.$axios
       .post('/games', game)
       .then((response) => this.$router.replace('/games/list'))
-      .catch((response) => console.log(response))
   }
 }
 
