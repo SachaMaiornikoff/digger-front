@@ -20,6 +20,11 @@ export const actions = {
       progress: false
     })
   },
+  gameExists({ dispatch }, data) {
+    return this.$axios.get('/games/exists/' + data, {
+      progress: false
+    })
+  },
   async getGame({ dispatch }, idGame) {
     // eslint-disable-next-line no-return-await
     return await this.$axios
